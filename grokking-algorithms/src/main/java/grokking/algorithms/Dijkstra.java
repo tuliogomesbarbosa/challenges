@@ -9,13 +9,13 @@ public class Dijkstra {
 
 	private static void dijkstra(GraphContext context) {
 		var processed = new ArrayList<String>();
-		var node = findLowestCostNode(context.costs, processed); // b
-		while (node != null) { // b
-			var cost = context.costs.get(node); // 2
-			var neighbors = context.graph.get(node); // a: 3 , fin: 5
-			for (var neighbor : neighbors.keySet()) { // a -> fin
-				float newCost = cost + neighbors.get(neighbor); // newCost = node: 2 + a: 3 = 5
-				if (context.costs.get(neighbor) > newCost) { // 6 > 5 ?
+		var node = findLowestCostNode(context.costs, processed);
+		while (node != null) {
+			var cost = context.costs.get(node);
+			var neighbors = context.graph.get(node);
+			for (var neighbor : neighbors.keySet()) {
+				float newCost = cost + neighbors.get(neighbor);
+				if (context.costs.get(neighbor) > newCost) {
 					context.costs.put(neighbor, newCost);
 					context.parents.put(neighbor, node);
 				}
