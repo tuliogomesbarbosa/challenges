@@ -8,7 +8,7 @@ public class MaxSumSubArrayOfSizeK {
 		int max = 0, sum = 0, windowStart = 0;
 		for (int windowEnd = 0; windowEnd < arr.length; windowEnd++) {
 			sum += arr[windowEnd];
-			if (windowEnd >= k - 1) { // wait until a sub-array of k is iterated -> windows size
+			if (windowEnd >= k - 1) { // wait until a sub-array of k is iterated -> window size
 				max = Math.max(max, sum);
 				sum -= arr[windowStart];
 				windowStart++;

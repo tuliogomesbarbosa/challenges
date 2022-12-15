@@ -20,5 +20,4 @@ public class AverageOfSubarrayOfSizeK {
 	public static void main(String[] args) {
 		System.out.println(Arrays.toString(findAverages(5, new int[]{1, 3, 2, 6, -1, 4, 1, 8, 2})));
 	}
-
 }

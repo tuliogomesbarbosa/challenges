@@ -1,6 +1,6 @@
 public class SubArraySumEqualsK {
 
-	// TODO broken -> sliding window is not entirely applied here
+	// TODO broken -> sliding window is not entirely applied here; fix with prefix sum
 	public static int subArraySum(int[] nums, int k) {
 		if(nums.length != 0 && k == 0) return 0;
 		int sum = 0, windowStart = 0, totalNumber = 0;

@@ -3,6 +3,8 @@ package trees;
 import java.util.LinkedList;
 import java.util.Queue;
 
+// DFS: 3 types -> in-order, pre-order, post-order
+// BFS
 public class BinaryTree {
 
 	static class Node {
@@ -19,20 +21,50 @@ public class BinaryTree {
 			this.left = left;
 			this.right = right;
 		}
+
+		@Override
+		public String toString() {
+			return "Node{" +
+					"data=" + data +
+					'}';
+		}
 	}
 
+	/**
+	 * For inorder traversal, we first recursively call the left child, then perform logic on the current node,
+	 * then recursively call the right child. This means no logic will be done until we reach a node without a left
+	 * child since calling on the left child takes priority over performing logic.
+	 */
 	public void inOrder(Node root) {
 
 	}
 
+	/**
+	 * In preorder traversal, logic is done on the current node before moving to the children. Let's say that we wanted
+	 * to just print the value of each node in the tree to the console. In that case, at any given node, we would print
+	 * the current node's value, then recursively call the left child, then recursively call the right child (or right
+	 * then left, it doesn't matter, but left before right is more common).
+	 */
 	public void preOrder(Node root) {
+		if (root == null) return;
 
+		System.out.println(root);
+		preOrder(root.left);
+		preOrder(root.right);
 	}
 
+	/**
+	 * In postorder traversal, we recursively call on the children first and then perform logic on the current node.
+	 * This means no logic will be done until we reach a leaf node since calling on the children takes priority over
+	 * performing logic. In a postorder traversal, the root is the last node where logic is done.
+	 */
 	public void postOrder(Node root) {
 
 	}
 
+	/**
+	 * Without recursion
+	 */
 	public void bfs(Node root) {
 		Queue<Node> bfs = new LinkedList<>();
 		bfs.add(root);
